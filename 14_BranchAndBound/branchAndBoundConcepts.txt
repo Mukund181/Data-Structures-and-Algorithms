@@ -1,0 +1,20 @@
+# Branch and Bound - Concepts
+
+## What is Branch and Bound?
+Branch and Bound (BnB) is an algorithm design paradigm used for solving combinatorial optimization problems. It systematically enumerates candidate solutions by means of state space search: the set of candidate solutions is thought of as forming a rooted tree with the full set at the root.
+
+## Difference between Backtracking and Branch & Bound
+1. **Backtracking** is used to find *all* possible solutions or *any* feasible solution. BnB is used specifically for *optimization* problems to find the *best* (min/max) solution.
+2. Backtracking uses Depth First Search (DFS). BnB uses BFS, DFS, or Best First Search.
+3. BnB uses a bounding function to calculate the bound of a node to see if it can yield a better solution than the current best. If not, the branch is "pruned" (discarded).
+
+## State Space Tree
+A tree representing all possible states (configurations) from the initial state to the target states.
+- **Live Node:** A generated node whose children are yet to be generated.
+- **E-Node (Expanding Node):** The live node currently being expanded.
+- **Dead Node:** A node that is not to be expanded further (pruned because its bound is worse than current best, or it violates constraints).
+
+## Types of BnB
+1. **FIFO Branch & Bound:** Uses a Queue (BFS style). Nodes are expanded in the order they are generated.
+2. **LIFO Branch & Bound:** Uses a Stack (DFS style). The most recently generated node is expanded first.
+3. **Least Cost (LC) Branch & Bound:** Uses a Priority Queue. Expands the live node with the best (least/max) bound (cost) first. This is generally the most efficient.
